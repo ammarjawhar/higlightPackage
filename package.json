@@ -1,0 +1,30 @@
+{
+  "name": "input-highlight-react2",
+  "version": "1.0.0",
+  "main": "dist/Highlightinp.js",
+  "module": "dist/Highlightinp.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir dist --extensions .js,.jsx"
+  },
+  "keywords": [
+    "react",
+    "highlight",
+    "mentions",
+    "input",
+    "component"
+  ],
+  "author": "Ammar Magdi Goher",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.23.0",
+    "@babel/preset-react": "^7.23.0"
+  }
+}
