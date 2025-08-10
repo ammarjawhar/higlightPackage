@@ -26,5 +26,8 @@
     "@babel/core": "^7.23.0",
     "@babel/preset-env": "^7.23.0",
     "@babel/preset-react": "^7.23.0"
+  },
+  "dependencies": {
+    "input-highlight-react2": "^1.0.0"
   }
 }

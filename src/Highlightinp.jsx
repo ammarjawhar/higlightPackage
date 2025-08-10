@@ -1,4 +1,3 @@
-// Components/Highlightinp.jsx
 import React, { useState } from 'react';
 
 const Highlightinp = ({ pattern }) => {
@@ -7,36 +6,35 @@ const Highlightinp = ({ pattern }) => {
   const highlightText = (text) => {
     if (!pattern || !text) return text;
 
-    return text.split(pattern).map((part, i) => {
-      if (pattern.test(part)) {
-        return (
-          <span key={i} style={{ color: 'red', fontWeight: 'bold' }}>
-            {part}
-          </span>
-        );
-      }
-      return part;
+    return text.replace(pattern, (match) => {
+      return `<span style="color:red">${match}</span>`;
     });
   };
 
   return (
-    <div
-      className="flex flex-col items-center justify-center min-h-screen"
-      style={{ fontFamily: 'Arial, sans-serif' }}
-    >
+    <div className="relative w-1/2 mx-auto ">
+      <div
+        className="absolute top-0 left-0 w-full p-2  pointer-events-none"
+        dangerouslySetInnerHTML={{ __html: highlightText(inputText) }}
+        style={{
+          fontFamily: 'Arial, sans-serif',
+          fontSize: '16px',
+        }}
+      />
       <input
-        className="w-1/2 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         type="text"
+        className="w-full p-2 border border-gray-300 rounded-md relative z-10"
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
-        placeholder="Enter text"
-        id="inp"
+        style={{
+          background: 'transparent',
+          color: 'transparent',
+          caretColor: 'red',
+          fontFamily: 'Arial, sans-serif',
+          fontSize: '16px',
+        }}
       />
-      <div className="mt-4 text-2xl font-bold text-gray-800 ">
-        {highlightText(inputText)}
-      </div>
     </div>
   );
 };
-
 export default Highlightinp;
